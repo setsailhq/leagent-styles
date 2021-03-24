@@ -23,7 +23,12 @@
     "styles"
   ],
   "sideEffects": false,
-  "scripts": {},
+  "scripts": {
+    "build": "npm run build"
+  },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "sass": "^1.32.8",
+    "sass-loader": "^8.0.2"
+  }
 }
