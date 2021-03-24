@@ -1,0 +1,29 @@
+{
+  "name": "leagent-style",
+  "version": "1.0.0",
+  "description": "Leagent styling Lib",
+  "homepage": "https://github.com/setsailhq/leagent-styles",
+  "repository": "setsailhq/leagent-styles",
+  "license": "MIT",
+  "author": {
+    "name": "Leagent",
+    "email": "team@leagent.com",
+    "url": "https://leagent.com"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead",
+    "not ie > 0"
+  ],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "leagent",
+    "styles"
+  ],
+  "sideEffects": false,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
