@@ -16,7 +16,7 @@
     "not ie > 0"
   ],
   "files": [
-    "dist"
+    "src/styles"
   ],
   "keywords": [
     "leagent",
