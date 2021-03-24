@@ -23,6 +23,7 @@
     "styles"
   ],
   "sideEffects": false,
+  "main": "src/styles.scss",
   "scripts": {
     "build": "npm run build"
   },
