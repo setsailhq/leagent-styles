@@ -26,6 +26,7 @@
   "scripts": {
     "build": "npm run build"
   },
+  "style": "src/styles.scss",
   "dependencies": {},
   "devDependencies": {
     "sass": "^1.32.8",
