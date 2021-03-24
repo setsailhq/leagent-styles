@@ -25,12 +25,14 @@
   "sideEffects": false,
   "main": "src/styles.scss",
   "scripts": {
-    "build": "npm run build"
+    "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
   },
-  "style": "src/styles.scss",
   "dependencies": {},
   "devDependencies": {
     "sass": "^1.32.8",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "node-sass": "^4.14.1"
   }
 }
