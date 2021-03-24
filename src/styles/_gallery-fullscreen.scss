@@ -1,0 +1,45 @@
+
+.fslightbox-slide-number-container {
+  opacity: 0;
+}
+
+.fslightbox-toolbar {
+  background-color: transparent;
+  .fslightbox-toolbar-button[title*="fullscreen"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.fslightbox-slide-btn {
+  border-radius: 50%;
+  svg {
+    opacity: 0;
+  }
+}
+
+.fslightbox-slide-btn-next-container {
+  .fslightbox-slide-btn {
+    background-image: url('../assets/icons/arrow_left.svg');
+    filter: invert(100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40% auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
+    transform: rotate(180deg);
+  }
+}
+
+.fslightbox-slide-btn-previous-container {
+  .fslightbox-slide-btn {
+    background-image: url('../assets/icons/arrow_left.svg');
+    filter: invert(100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40% auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
+  }
+}
+

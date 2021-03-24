@@ -1,0 +1,613 @@
+@mixin tablet {
+    @media screen and (min-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin largeTablet {
+    @media screen and (min-width: $large-tablet-width) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: $desktop-width) {
+        @content;
+    }
+}
+@mixin largeMobile {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin largeDesktop {
+    @media screen and (min-width: $large-desktop-width) {
+        @content;
+    }
+}
+
+@mixin content {
+    @media screen and (min-width: $content-width) {
+        @content;
+    }
+}
+
+@mixin button {
+    font-family: $font-family_default;
+    font-size: $font-size_default;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px;
+
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    text-decoration: none;
+
+    color: #000;
+    border: none;
+    border-radius: 49px;
+    outline: none;
+}
+
+@mixin button-yellow {
+    @include button;
+
+    background: $color-secondary;
+    box-shadow: 0 4px 18px rgba(230, 194, 0, .61);
+
+    &:active {
+        background: darken($color-secondary, 1);
+        box-shadow: 0 4px 18px rgba(230, 194, 0, .9);
+    }
+}
+
+@mixin button-blue {
+    @include button;
+
+    color: #fefefe;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    background: $color-primary;
+
+    &:active {
+        background: darken($color-primary, 5);
+    }
+}
+
+@mixin button-transparent-blue {
+    @include button;
+
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 15px;
+    outline: none;
+    background: transparent;
+
+    &:active {
+        color: white;
+        background: $color-primary;
+    }
+}
+
+@mixin rangeCtrl {
+    font-family: $font-family_default;
+    font-size: $font-size_default;
+    font-weight: $font-weight_bold;
+    padding: 7px;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 15px;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 23, 255, .2));
+}
+
+@mixin selectCtrl {
+    font-family: $font-family_default;
+    font-size: $font-size_default;
+    font-weight: $font-weight_bold;
+
+    padding: 7px;
+    padding-right: 27px;
+
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 15px;
+    background-color: transparent;
+    background-image: url('../assets/icons/down_primary.svg');
+    background-repeat: no-repeat;
+    background-position-x: 85%;
+    background-position-y: 14px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 23, 255, .2));
+}
+
+@mixin formInputTitle {
+    font-family: $font-family_default;
+    font-size: 12px;
+    font-weight: $font-weight_bold;
+    position: absolute;
+    z-index: 2;
+    left: 30px;
+    padding: 0 7px;
+    transform: translateY(-50%);
+    color: $color-primary;
+    background-color: white;
+}
+@mixin fromInputCtrl {
+    font-family: $font-family_default;
+    font-size: 14px;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px 14px 12px 14px;
+
+    color: black;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        border: 1.5px solid #eee;
+        outline: none;
+    }
+}
+@mixin formRangeCtrl {
+    @include rangeCtrl;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+    filter: none;
+    padding: 13px 15px;
+}
+@mixin formSelectCtrl {
+    @include selectCtrl;
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    color: black;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    background-position-x: 95%;
+    background-position-y: 18px;
+    filter: none;
+}
+@mixin formTextareaCtrl {
+    font-family: $font-family_default;
+    font-size: 14px;
+    font-weight: normal;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 15px;
+
+    color: black;
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+}
+@mixin formCtrls($bg: 'white', $border: '1.5px solid #EEEEEE') {
+    span {
+        @include formInputTitle;
+        background: #{$bg};
+        &:focus {
+            border: #{$border};
+            outline: none;
+        }
+    }
+
+    input {
+        @include fromInputCtrl;
+        border: #{$border};
+        background: #{$bg};
+        &:focus {
+            border: #{$border};
+            outline: none;
+        }
+        &[type="date"] {
+            display:block;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            min-height: 40px;
+        }
+    }
+
+    select {
+        @include formSelectCtrl;
+        border: #{$border};
+        background-color: #{$bg};
+        &:focus {
+            border: #{$border};
+            outline: none;
+        }
+    }
+
+    textarea {
+        @include formTextareaCtrl;
+        border: #{$border};
+        background: #{$bg};
+        &:focus {
+            border: #{$border};
+            outline: none;
+        }
+    }
+
+    img {
+        position: absolute;
+        height: 20px;
+        width: auto;
+        top: calc(50% - 12px);
+        right: 15px;
+    }
+
+    range {
+        @include formRangeCtrl;
+        border: #{$border};
+        background-color: #{$bg};
+        display: flex;
+        align-items: center;
+    }
+}
+
+@mixin imgCentered {
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    zoom: .01;
+
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+
+    transform: translate(-50%, -50%);
+}
+
+@mixin title {
+    font-family: $font-family_default;
+    font-size: 32px;
+    font-weight: $font-weight_bold;
+
+    color: black;
+}
+@mixin text {
+    font-family: $font-family_default;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 22px;
+}
+
+@mixin cardItem {
+    margin-bottom: 30px;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+    outline: 3px solid transparent;
+    background: white;
+    box-shadow: 0 9px 55px rgba(0, 0, 0, .05);
+
+    .cardPreview {
+        position: relative;
+        display: block;
+
+        .cardImage {
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+
+            img {
+                @include imgCentered;
+                border-radius: 15px 15px 0 0;
+            }
+            .img {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-image: url('../assets/images/property.svg');
+                width: 100%;
+                height: 100%;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+                opacity: .7;
+                border-radius: 15px 15px 0 0;
+                background-color: $color-primary;
+            }
+        }
+
+        .cardTitle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+
+            margin-top: -100%;
+            padding-top: 6.5px;
+            padding-bottom: 7px;
+
+            border-radius: 0 15px 0 0;
+            background: rgba(0, 0, 0, .2);
+
+            backdrop-filter: blur(15px);
+
+            max-width: calc(100% - 10px);
+
+            .cardPrice {
+                position: relative;
+                font-family: $font-family_default;
+                font-size: 18px;
+                font-weight: $font-weight_bold;
+                font-style: normal;
+                line-height: 22px;
+
+                margin-right: 20px;
+                margin-left: 20px;
+
+                color: #fff;
+
+                text-overflow: ellipsis;
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                max-width: 100%;
+
+                .cardPriceInfo {
+                    @include mobile {
+                        span {
+                            display: none;
+                        }
+                        span:last-child {
+                            display: contents;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    @include tablet {
+                        span {
+                            display: none;
+                        }
+                        span:last-child {
+                            display: contents;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    @include largeDesktop {
+                        span {
+                            display: contents;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    font-family: $font-family_default;
+                    font-size: 12px;
+                    line-height: 14px;
+                    position: relative;
+                    top: 1px;
+                    margin-left: 15px;
+                    text-overflow: ellipsis;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: nowrap;
+
+                    &.short {
+                        display: inline-block;
+                        max-width: calc(100% - 50px);
+                        white-space: nowrap;
+                        overflow: hidden !important;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+
+    .cardFooter {
+        padding: 0 20px 20px 20px;
+
+        border-radius: 0 0 15px 15px;
+        background-color: white;
+
+        .cardFooterInfo {
+            font-style: normal;
+
+            display: flex;
+            align-items: center;
+            flex-flow: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            padding-top: 15px;
+
+            color: #000;
+
+            .cardFooterStreet {
+                font-family: $font-family_default;
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 18px;
+
+                white-space: nowrap;
+                text-transform: capitalize;
+            }
+
+            .cardFooterAuthor {
+                font-family: $font-family_default;
+                font-size: 9px;
+                font-weight: normal;
+                line-height: 1;
+
+                position: relative;
+
+                margin-top: 2px;
+
+                text-align: right;
+
+                color: rgba(#000, .4);
+            }
+
+            div + div {
+                margin-left: 4px;
+            }
+        }
+
+        .cardFooterIcons {
+            margin-top: 15px;
+            margin-bottom: 0;
+
+            color: black;
+
+            .cardFooterIconGroup {
+                .number {
+                    font-family: $font-family_default;
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-style: normal;
+
+                    position: relative;
+                    bottom: 2px;
+
+                    margin-left: 15px;
+                }
+
+                .icon {
+                    height: 15px;
+                    margin-left: 4px;
+                    img {
+                        width: auto;
+                        height: 100%;
+                        max-height: 12px;
+                        filter: grayscale(1);
+                        margin-bottom: 0;
+                    }
+                }
+
+                .units {
+                    font-family: $font-family_default;
+                    font-size: 12px;
+                    font-weight: normal;
+
+                    position: relative;
+                    bottom: 2px;
+
+                    margin-left: 4px;
+
+                    color: rgba(#000, .4);
+                }
+            }
+        }
+    }
+}
+
+
+@mixin bgCircules {
+    @include mobile {
+        display: none;
+    }
+    @include tablet {
+        display: block;
+    }
+    @include desktop {
+        display: block;
+    }
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .bgCirclePrimary {
+        position: absolute;
+        display: inline-block;
+        bottom: -150px;
+        right: -150px;
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        background-color: $color-primary;
+    }
+    .bgCircleSecondary {
+        position: absolute;
+        display: inline-block;
+        bottom: -360px;
+        right: -30px;
+        width: 430px;
+        height: 430px;
+        border-radius: 50%;
+        background-color: $color-secondary;
+    }
+}
+
+@mixin soldTag {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 29px;
+    border-radius: 30px;
+    background: $color-red;
+    text-transform: capitalize;
+}
+
+@mixin hiddenParam {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(14px);
+    > div:first-child {
+        opacity: 0;
+        transition: all 200ms;
+    }
+    &:hover {
+        > div:first-child {
+            opacity: 1;
+        }
+    }
+}

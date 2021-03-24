@@ -1,0 +1,44 @@
+@import 'variables';
+
+.react-multi-carousel-list {
+    overflow: visible;
+}
+
+.react-multi-carousel-item {
+    transition: opacity .1s ease-in-out;
+    &:not(.react-multi-carousel-item--active) {
+        opacity: 0;
+    }
+}
+
+.react-multi-carousel-list {
+    &.partial {
+        .react-multi-carousel-item--active + .react-multi-carousel-item {
+            opacity: 1;
+        }
+    }
+}
+
+.react-multi-carousel-dot-list {
+    li.react-multi-carousel-dot {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        button {
+            width: 10px;
+            height: 10px;
+            margin: 0;
+
+            border: none;
+            outline: none;
+            background: #cad5e1;
+        }
+
+        &.react-multi-carousel-dot--active {
+            button {
+                background: $color-primary;
+            }
+        }
+    }
+}

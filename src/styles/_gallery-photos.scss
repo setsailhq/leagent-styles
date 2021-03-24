@@ -1,0 +1,440 @@
+@import 'variables';
+
+$ig-small-screen: 768px !default;
+
+$ig-xsmall-screen: 480px !default;
+
+$ig-white: #fff !default;
+
+$ig-black: #000 !default;
+
+$ig-blue: #337ab7 !default;
+
+$ig-background-black: rgba(0, 0, 0, .4) !default;
+
+$ig-transparent: rgba(0, 0, 0, 0) !default;
+
+@mixin vendor-prefix($name, $value) {
+    @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+        #{$vendor}#{$name}: #{$value};
+    }
+}
+
+.image-gallery-left-nav, .image-gallery-right-nav {
+    top: 50%;
+
+    padding: 50px 10px;
+
+    transform: translateY(-50%);
+
+    &[disabled] {
+        cursor: disabled;
+        pointer-events: none;
+
+        opacity: .6;
+    }
+}
+
+.image-gallery-left-nav {
+    left: 0;
+}
+
+.image-gallery-right-nav {
+    right: 0;
+}
+
+.image-gallery {
+    @include vendor-prefix('user-select', none);
+
+    position: relative;
+
+    -webkit-tap-highlight-color: $ig-transparent;
+
+    &.fullscreen-modal {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: $ig-black;
+
+        .image-gallery-content {
+            top: 50%;
+
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.image-gallery-content {
+    line-height: 0;
+
+    position: relative;
+    top: 0;
+
+    &.fullscreen {
+        background: $ig-black;
+    }
+
+    .image-gallery-slide .image-gallery-image {
+        max-height: calc(100vh - 80px); // 80 px for the thumbnail space
+    }
+
+    &.left, &.right {
+        .image-gallery-slide .image-gallery-image {
+            max-height: 100vh;
+        }
+    }
+}
+
+.image-gallery-slide-wrapper {
+    position: relative;
+
+    &.left, &.right {
+        display: inline-block;
+
+        width: calc(100% - 320px);
+
+        // 100px + 10px for margin
+        @media (max-width: $ig-small-screen) {
+            width: calc(100% - 87px); // 81px + 6px for margin
+        }
+    }
+
+    &.image-gallery-rtl {
+        direction: rtl;
+    }
+}
+
+.image-gallery-slides {
+    line-height: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+    white-space: nowrap;
+
+    border-radius: 18px;
+}
+
+.image-gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    &.center {
+        position: relative;
+    }
+
+    .image-gallery-image {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .image-gallery-description {
+        line-height: 1;
+
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+
+        padding: 10px 20px;
+
+        white-space: normal;
+
+        color: $ig-white;
+        background: $ig-background-black;
+
+        @media (max-width: $ig-small-screen) {
+            font-size: .8em;
+
+            bottom: 45px;
+
+            padding: 8px 15px;
+        }
+    }
+}
+
+.image-gallery-bullets {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+
+    width: 80%;
+    margin: 0 auto;
+
+    .image-gallery-bullets-container {
+        margin: 0;
+        padding: 0;
+
+        text-align: center;
+    }
+
+    .image-gallery-bullet {
+        display: inline-block;
+
+        margin: 0 5px;
+        padding: 5px;
+
+        cursor: pointer;
+        transition: background .2s ease-out;
+
+        border: 1px solid $ig-white;
+        border-radius: 50%;
+        outline: none;
+        background-color: transparent;
+        box-shadow: 0 1px 0 lighten($ig-black, 10%);
+
+        appearance: none;
+
+        @media (max-width: $ig-small-screen) {
+            margin: 0 3px;
+            padding: 3px;
+        }
+
+        @media (max-width: $ig-xsmall-screen) {
+            padding: 2.7px;
+        }
+
+        &:focus, &:hover {
+            transform: scale(1.1);
+
+            background: transparent;
+        }
+
+        &.active {
+            background: $ig-white;
+        }
+    }
+}
+
+.image-gallery-thumbnails-wrapper {
+    position: relative;
+
+    &.thumbnails-wrapper-rtl {
+        direction: rtl;
+    }
+
+    &.left, &.right {
+        display: inline-block;
+
+        width: 310px;
+
+        vertical-align: top;
+
+        @media (max-width: $ig-small-screen) {
+            width: 81px; // 75px + 6px for border
+        }
+
+        .image-gallery-thumbnails {
+            // overflow-y: auto;
+            // position: absolute;
+            // top: 15px;
+            // left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+
+            .image-gallery-thumbnail {
+                display: block;
+                float: left;
+
+                margin-right: 0;
+                padding: 0;
+
+                + .image-gallery-thumbnail {
+                    margin-left: 0;
+                    // margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    &.left, &.right {
+        margin: 0 5px;
+
+        @media (max-width: $ig-small-screen) {
+            margin: 0 3px;
+        }
+    }
+}
+
+.image-gallery-thumbnails {
+    overflow: hidden;
+
+    padding: 5px 0;
+
+    .image-gallery-thumbnails-container {
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+
+        height: 100%;
+
+        cursor: pointer;
+        transition: transform .45s ease-out;
+        text-align: center;
+        white-space: nowrap;
+
+        border-radius: 16px 16px 0 15px;
+        background-color: white;
+
+        .gallery-agent-wrapper {
+            position: relative;
+
+            overflow-y: auto;
+
+            max-height: 100%;
+
+            // margin-right: -2px;
+            // padding-right: 2px;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+
+            // &::-webkit-scrollbar-thumb {
+            //     border-radius: 3px;
+            //     background: rgba(0, 0, 0, .8);
+            // }
+
+            // &::-webkit-scrollbar-track {
+            //     background: transparent;
+            // }
+
+            .gallery-agent-info {
+                position: sticky;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+.gallery-thumbnail-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 5px;
+    border-radius: 17px 17px 0 0;
+    overflow: hidden;
+}
+
+.image-gallery-thumbnail {
+    position: relative;
+    z-index: 5;
+
+    display: inline-block;
+    overflow: hidden;
+
+    min-width: 100px;
+    max-width: 100px;
+    height: 100px;
+    padding: 0;
+
+    transition: border .1s ease-out;
+
+    border: 5px solid transparent;
+    border-radius: 15px;
+    background: transparent;
+
+    @media (max-width: $ig-small-screen) {
+        width: 81px;
+        border: 3px solid transparent;
+    }
+
+    + .image-gallery-thumbnail {
+        // margin-left: 2px;
+    }
+
+    .image-gallery-thumbnail-inner {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+
+    .thumbnail-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border: 3px solid transparent;
+        border-radius: 10px;
+    }
+
+    &.active, &:hover, &:focus {
+        border: 5px solid transparent;
+
+        // border: 3px solid $color-primary;
+        .thumbnail-border {
+            border: 3px solid $color-primary;
+        }
+    }
+}
+
+.image-gallery-thumbnail-label {
+    font-size: 1em;
+    line-height: 1em;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5%;
+
+    transform: translateY(-50%);
+    white-space: normal;
+
+    color: white;
+    text-shadow: 1px 1px 0 black;
+
+    @media(max-width: $ig-small-screen) {
+        font-size: .8em;
+        line-height: .8em;
+    }
+}
+
+.image-gallery-index {
+    line-height: 1;
+
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    right: 0;
+
+    padding: 10px 20px;
+
+    color: $ig-white;
+    background: $ig-background-black;
+
+    @media(max-width: $ig-small-screen) {
+        font-size: .8em;
+
+        padding: 5px 10px;
+    }
+}
+

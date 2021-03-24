@@ -1,0 +1,22 @@
+@import '../styles';
+
+.input-range__track--background {
+    right: 0 !important;
+    left: 0 !important;
+}
+
+.input-range__track {
+    height: 1px !important;
+}
+
+.input-range__track--active {
+    height: 2px !important;
+
+    transform: translateY(-50%);
+}
+
+.input-range__slider {
+    @include desktop {
+        margin-top: -9px !important;
+    }
+}
