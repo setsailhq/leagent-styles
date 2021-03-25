@@ -32,7 +32,6 @@
     "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
     "css-watch": "npm run css-build -- --watch",
     "start": "npm run css-watch",
-    "preinstall": "npm i react && npm i smoothscroll-polyfill && npm i body-scroll-lock",
     "postinstall": "cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz"
   },
   "dependencies": {
