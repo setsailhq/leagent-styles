@@ -28,8 +28,7 @@
   "scripts": {
     "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
     "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch",
-    "postinstall": "npm i"
+    "start": "npm run css-watch"
   },
   "dependencies": {
     "fslightbox-react": "file:src/lib/fslightbox-react-pro-1.4.2.tgz"
