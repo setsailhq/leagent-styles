@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "description": "Leagent styling Lib",
   "homepage": "https://github.com/setsailhq/leagent-styles",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/setsailhq/leagent-styles.git"
-  },
+  "repository": "setsailhq/leagent-styles",
   "license": "MIT",
-  "author": "Leagent <team@leagent.com> (https://leagent.com)",
+  "author": {
+    "name": "Leagent",
+    "email": "team@leagent.com",
+    "url": "https://leagent.com"
+  },
   "browserslist": [
     "> 0.2%",
     "not dead",
     "not ie > 0"
   ],
   "files": [
-    "src/styles.scss",
     "src/assets",
     "src/helpers",
     "src/hooks",
@@ -35,15 +35,15 @@
     "preinstall": "npm i smoothscroll-polyfill && npm i body-scroll-lock",
     "postinstall": "cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "^16.13.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "body-scroll-lock": "^3.1.5",
-    "node-sass": "^4.14.1"
+    "body-scroll-lock": "^3.1.5"
   },
   "devDependencies": {
     "sass": "^1.32.8",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "node-sass": "^4.14.1"
   },
   "bugs": {
     "url": "https://github.com/setsailhq/leagent-styles/issues"
