@@ -32,7 +32,7 @@
     "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
     "css-watch": "npm run css-build -- --watch",
     "start": "npm run css-watch",
-    "postinstall": "cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz"
+    "postinstall": "npm i && cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz"
   },
   "dependencies": {
     "react": "^16.13.1",
