@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 
 import { constants } from './constants';
