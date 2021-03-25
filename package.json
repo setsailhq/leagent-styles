@@ -16,8 +16,11 @@
     "not ie > 0"
   ],
   "files": [
-    "src/styles",
-    "src/assets"
+    "src/assets",
+    "src/helpers",
+    "src/hooks",
+    "src/lib",
+    "src/styles"
   ],
   "keywords": [
     "leagent",
@@ -33,7 +36,8 @@
   "dependencies": {
     "react": "^16.13.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "body-scroll-lock": "^3.1.5"
+    "body-scroll-lock": "^3.1.5",
+    "fslightbox-react": "file:src/lib/fslightbox-react-pro-1.4.2.tgz"
   },
   "devDependencies": {
     "sass": "^1.32.8",
