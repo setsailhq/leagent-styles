@@ -36,9 +36,11 @@
     "postinstall": "cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
   },
   "dependencies": {
-    "react": "^16.13.1",
     "smoothscroll-polyfill": "^0.4.4",
     "body-scroll-lock": "^3.1.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "sass": "^1.32.8",
