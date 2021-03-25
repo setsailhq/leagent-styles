@@ -31,13 +31,13 @@
   "scripts": {
     "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
     "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch"
+    "start": "npm run css-watch",
+    "postinstall": "npm i ./src/lib/fslightbox-react-pro-1.4.2.tgz"
   },
   "dependencies": {
     "react": "^16.13.1",
     "smoothscroll-polyfill": "^0.4.4",
-    "body-scroll-lock": "^3.1.5",
-    "fslightbox-react": "file:src/lib/fslightbox-react-pro-1.4.2.tgz"
+    "body-scroll-lock": "^3.1.5"
   },
   "devDependencies": {
     "sass": "^1.32.8",
