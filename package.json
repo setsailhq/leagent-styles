@@ -28,10 +28,11 @@
   "scripts": {
     "css-build": "node-sass --omit-source-map-url src/styles.scss styles.scss",
     "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch",
-    "postinstall": "npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz"
+    "start": "npm run css-watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fslightbox-react": "file:src/lib/fslightbox-react-pro-1.4.2.tgz"
+  },
   "devDependencies": {
     "sass": "^1.32.8",
     "sass-loader": "^8.0.2",
