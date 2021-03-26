@@ -1,4 +1,6 @@
 
+export FsLightbox from 'fslightbox-react';
+
 // hooks
 export { useCarouselTouch } from './hooks/useCarouselTouch';
 export { useCloseOnOuterClick } from './hooks/useCloseOnOuterClick';

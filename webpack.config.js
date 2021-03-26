@@ -35,6 +35,6 @@ module.exports = {
 			}
 		]
 	},
-	externals: ['react', 'smoothscroll-polyfill', 'body-scroll-lock'],
+	externals: ['react', 'smoothscroll-polyfill', 'body-scroll-lock', 'fslightbox-react'],
 	mode: 'production'
 };
