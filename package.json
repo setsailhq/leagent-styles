@@ -18,7 +18,8 @@
   "files": [
     "build",
     "src/assets",
-    "src/styles"
+    "src/styles",
+    "src/styles.scss"
   ],
   "keywords": [
     "leagent",
