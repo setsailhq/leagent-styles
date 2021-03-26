@@ -2,7 +2,7 @@ var path = require('path');
 module.exports = {
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'utils'),
 		filename: 'index.js',
 		libraryTarget: 'umd'
 	},
@@ -36,5 +36,5 @@ module.exports = {
 		]
 	},
 	externals: ['react', 'smoothscroll-polyfill', 'body-scroll-lock', 'fslightbox-react'],
-	mode: 'production'
+	mode: 'development'
 };
