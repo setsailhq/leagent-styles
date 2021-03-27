@@ -50,4 +50,4 @@ export {
 } from './helpers/store'
 
 // constants
-export { constants } from './helpers/constants'
+export { constants as constantsUtils } from './helpers/constants'
