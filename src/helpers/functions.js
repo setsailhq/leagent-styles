@@ -1,4 +1,4 @@
-
+import React from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 
 import { constants } from './constants';
@@ -53,15 +53,15 @@ export function debounce(fn, ms = 150) {
 	};
 }
 
-export function getIcon(iconName) {
+export function insertIcon(iconName) {
 	const iconObj = constants.icons.find(i => i.name === iconName);
-	return iconObj ? iconObj : null;
+	return iconObj ? <img src={iconObj.icon} alt={iconObj.name} /> : '';
 }
 
-export function getFeatureIcon(featureName) {
+export function insertFeatureIcon(featureName) {
 	let featureObj = constants.features.find(f => f.feature === featureName.toLowerCase());
 	featureObj = featureObj ? featureObj : constants.features.find(f => f.feature === 'default');
-	return getIcon(featureObj.icon);
+	return insertIcon(featureObj.icon);
 }
 export function featureName(featureName) {
 	let featureObj = constants.features.find(f => f.feature === featureName.toLowerCase());
