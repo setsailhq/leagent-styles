@@ -6,8 +6,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'utils'),
 		filename: 'index.js',
-		libraryTarget: 'umd',
-		library: 'leagent-style'
+		libraryTarget: 'commonjs2'
 	},
 	module: {
 		rules: [
