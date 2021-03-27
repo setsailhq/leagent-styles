@@ -32,7 +32,8 @@
   "main": "utils/index.js",
   "scripts": {
     "start": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "postinstall": "npm i smoothscroll-polyfill && npm i body-scroll-lock && npm i src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
   },
   "peerDependencies": {
     "react": ">= 16.8.0",
