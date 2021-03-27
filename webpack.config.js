@@ -1,10 +1,13 @@
-var path = require('path');
+const path = require('path');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
 module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'utils'),
 		filename: 'index.js',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
+		library: 'leagent-style'
 	},
 	module: {
 		rules: [
@@ -35,6 +38,7 @@ module.exports = {
 			}
 		]
 	},
+	plugins: [new CleanWebpackPlugin()],
 	externals: ['react', 'smoothscroll-polyfill', 'body-scroll-lock', 'fslightbox-react'],
-	mode: 'development'
+	mode: 'production'
 };
