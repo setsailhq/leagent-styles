@@ -1,15 +1,15 @@
 
-export FsLightbox from 'fslightbox-react';
+import FsLightbox from 'fslightbox-react';
 
 // hooks
-export { useCarouselTouch as useHookCarouselTouch } from './hooks/useCarouselTouch';
-export { useCloseOnOuterClick as useHookCloseOnOuterClick } from './hooks/useCloseOnOuterClick';
-export { useEscPress as useHookEscPress } from './hooks/useEscPress';
-export { useScrolled as useHookScrolled } from './hooks/useScrolled';
-export { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
+import { useCarouselTouch as useHookCarouselTouch } from './hooks/useCarouselTouch';
+import { useCloseOnOuterClick as useHookCloseOnOuterClick } from './hooks/useCloseOnOuterClick';
+import { useEscPress as useHookEscPress } from './hooks/useEscPress';
+import { useScrolled as useHookScrolled } from './hooks/useScrolled';
+import { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
 
 // functions
-export {
+import {
 	randomKey,
 	findGetParameter,
 	getWalk3dPreviewImg,
@@ -40,14 +40,67 @@ export {
 } from './helpers/functions'
 
 // framer
-export { collapseModal as framerCollapseModal, fadeIn as framerFadeIn } from './helpers/framer'
+import { collapseModal as framerCollapseModal, fadeIn as framerFadeIn } from './helpers/framer'
 
 // story
-export {
+import {
 	getSessionId as getStoreSessionId,
 	getData as getStoreData,
 	setData as setStoreData
 } from './helpers/store'
 
 // constants
-export { constants as constantsUtils } from './helpers/constants'
+import { constants as constantsUtils } from './helpers/constants'
+
+export default {
+	// components
+	FsLightbox,
+
+	// hooks
+	useHookCarouselTouch,
+	useHookCloseOnOuterClick,
+	useHookEscPress,
+	useHookScrolled,
+	useHookWindowSize,
+
+	// functions
+	randomKey,
+	findGetParameter,
+	getWalk3dPreviewImg,
+	getVideoPreviewImg,
+	getVideoId,
+	randomLat,
+	randomLng,
+	randomCoords,
+	pageSize,
+	deviceType,
+	debounce,
+	insertIcon,
+	insertFeatureIcon,
+	featureName,
+	scrollTo,
+	hashCode,
+	isNumeric,
+	formatDate,
+	addCommas,
+	splitValue,
+	splitAddress,
+	splitText,
+	strToSlug,
+	replaceWithRandom,
+	textWidth,
+	hexToRgb,
+	iOS,
+
+	// framer
+	framerCollapseModal,
+	framerFadeIn,
+
+	// local store
+	getStoreSessionId,
+	getStoreData,
+	setStoreData,
+
+	// constants
+	constantsUtils
+}
