@@ -1,23 +1,21 @@
 
 // generic styles
-@import 'styles/normalize';
-@import 'styles/fonts';
-@import 'styles/variables';
-@import 'styles/mixins';
-@import 'styles/mixins_skeleton';
+@import 'styles/normalize',
+    'styles/fonts',
+    'styles/variables',
+    'styles/mixins',
+    'styles/mixins_skeleton';
 
 // overrides of the libraries
-@import 'styles/range-input';
-@import 'styles/datepicker';
-@import 'styles/google_map';
-@import 'styles/local_logic_widget';
-@import 'styles/gallery-photos';
-@import 'styles/gallery-fullscreen';
-@import 'styles/lazyload-list';
-@import 'styles/carousel';
-
-// another generic styles
-@import 'styles/animations';
+@import 'styles/range-input',
+    'styles/datepicker',
+    'styles/google_map',
+    'styles/local_logic_widget',
+    'styles/gallery-photos',
+    'styles/gallery-fullscreen',
+    'styles/lazyload-list',
+    'styles/carousel',
+    'styles/animations';
 
 #root {
     overflow-x: hidden;
