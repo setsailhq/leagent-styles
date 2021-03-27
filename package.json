@@ -33,7 +33,7 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "postinstall": "npm i smoothscroll-polyfill && npm i body-scroll-lock && cd ../../ && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
+    "postinstall": "cd ../../ && npm i smoothscroll-polyfill && npm i body-scroll-lock && npm i ./node_modules/leagent-style/src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
   },
   "peerDependencies": {
     "react": ">= 16.8.0",
