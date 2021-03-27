@@ -1,7 +1,9 @@
 import React from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
 
-import { constants } from './constants';
+import { getConstants } from './constants';
+
+const constants = getConstants();
 
 export function randomKey() {
 	return (Math.random() * 10000001);

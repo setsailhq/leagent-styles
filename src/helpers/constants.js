@@ -53,7 +53,7 @@ import icon_pdf_mls from '../assets/icons/pdf/pdf_mls.svg';
 import icon_pdf_phone from '../assets/icons/pdf/pdf_phone.svg';
 import icon_pdf_title from '../assets/icons/pdf/pdf_title.svg';
 
-export const constants = {
+const constants = {
 
 	SKELETON_ANIMATION_DURATION: 2,
 	SKELETON_COLOR_TEXT: '#C8CED6',
@@ -145,3 +145,7 @@ export const constants = {
 		{ icon: 'box', feature: 'default' },
 	],
 };
+
+export function getConstants() {
+	return constants;
+}

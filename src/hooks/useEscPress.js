@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { constants } from '../helpers/constants';
+import { getConstants } from '../helpers/constants';
+
+const constants = getConstants();
 
 export function useEscPress() {
 

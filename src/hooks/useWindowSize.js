@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import { constants } from '../helpers/constants';
+import { getConstants } from '../helpers/constants';
 import { debounce, deviceType } from '../helpers/functions';
+
+const constants = getConstants();
 
 export function useWindowSize() {
 

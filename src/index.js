@@ -50,7 +50,7 @@ import {
 } from './helpers/store'
 
 // constants
-import { constants as constantsUtils } from './helpers/constants'
+import { getConstants } from './helpers/constants'
 
 module.exports = {
 	// components
@@ -102,5 +102,5 @@ module.exports = {
 	setStoreData,
 
 	// constants
-	constantsUtils
+	getConstants
 }
