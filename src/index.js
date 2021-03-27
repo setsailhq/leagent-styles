@@ -52,7 +52,7 @@ import {
 // constants
 import { constants as constantsUtils } from './helpers/constants'
 
-export {
+module.exports = {
 	// components
 	FsLightbox,
 
