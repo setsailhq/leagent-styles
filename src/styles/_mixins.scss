@@ -324,6 +324,61 @@
     }
 }
 
+@mixin formCheckboxCtrl($width: 24px) {
+    display: flex;
+    align-items: center;
+
+    label {
+        font-size: 10px;
+
+        margin-left: 10px;
+
+        letter-spacing: .005em;
+    }
+
+    input {
+        position: relative;
+
+        width: $width;
+        height: $width;
+
+        outline: none;
+
+        appearance: none;
+
+        &::before, &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: block;
+
+            width: $width;
+            height: $width;
+
+            content: '';
+
+            border-radius: 5px;
+        }
+
+        &::before {
+            box-sizing: border-box;
+
+            border: 2px solid #000430;
+        }
+
+        &::after {
+            background: transparent center / cover no-repeat;
+        }
+
+        &:checked {
+            &:after {
+                background-image: url(../assets/icons/checkbox-checked.svg);
+            }
+        }
+    }
+}
+
 @mixin imgCentered {
     position: relative;
     top: 50%;
