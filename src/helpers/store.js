@@ -1,7 +1,7 @@
 import { hashCode } from './functions';
 
 export function getSessionId() {
-	return hashCode(window.navigator.userAgent);
+	return hashCode('NU3NHexkAr6kEDxZahOcZ4sWGqiIinuT');
 }
 
 export function getData(key, defaultVal = null) {
@@ -22,4 +22,10 @@ export function setData(key, data) {
 		console.log('Error: setData from local storage failed', e);
 	}
 	return res;
+}
+export function setUserData(data) {
+	return setData('userData', data);
+}
+export function getUserData() {
+	return getData('userData');
 }

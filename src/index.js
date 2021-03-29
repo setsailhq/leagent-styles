@@ -46,7 +46,9 @@ import { collapseModal as framerCollapseModal, fadeIn as framerFadeIn } from './
 import {
 	getSessionId as getStoreSessionId,
 	getData as getStoreData,
-	setData as setStoreData
+	setData as setStoreData,
+	setUserData as setStoreUserData,
+	getUserData as getStoreUserData
 } from './helpers/store'
 
 // constants
@@ -100,6 +102,8 @@ module.exports = {
 	getStoreSessionId,
 	getStoreData,
 	setStoreData,
+	setStoreUserData,
+	getStoreUserData,
 
 	// constants
 	getConstants
