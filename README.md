@@ -2,8 +2,13 @@
 
 ## Installation
 To install the library you need to either 
-run `npm i git+https://df6a9541acffd321c26c56d0de5cc11939d8cd4d:x-oauth-basic@github.com/setsailhq/leagent-styles.git` 
-or `yarn add git+https://df6a9541acffd321c26c56d0de5cc11939d8cd4d:x-oauth-basic@github.com/setsailhq/leagent-styles.git`
+run 
+
+`npm i git+https://df6a9541acffd321c26c56d0de5cc11939d8cd4d:x-oauth-basic@github.com/setsailhq/leagent-styles.git` 
+
+or 
+
+`yarn add git+https://df6a9541acffd321c26c56d0de5cc11939d8cd4d:x-oauth-basic@github.com/setsailhq/leagent-styles.git`
 
 This will add the lib to your project, so thus you can use styles and JS methods from it.
 
@@ -21,6 +26,7 @@ Also, assets are included to the styles, so thus you can use icons of arrows or 
 
 ## JS functions available
 ```
+
 
 module.exports = {
 	// components
@@ -70,8 +76,11 @@ module.exports = {
 	getStoreSessionId,
 	getStoreData,
 	setStoreData,
+	setStoreUserData,
+	getStoreUserData,
 
 	// constants
 	getConstants
 }
+
 ```
