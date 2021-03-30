@@ -1,0 +1,41 @@
+export const initScripts = (url, id) => {
+    if (!isScriptLoaded(url)) {
+        loadScript(url, id, () => {
+            // console.log('loaded', url, new Date());
+        });
+    }
+};
+
+const loadScript = (url, id, callback) => {
+    let script = document.createElement('script');
+    script.type = 'text/javascript';
+
+    if (id) {
+        script.id = id;
+    }
+
+    script.async = true;
+    script.defer = true;
+
+    if (script.readyState) {
+        script.onreadystatechange = function () {
+            if (script.readyState === 'loaded' || script.readyState === 'complete') {
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {
+        script.onload = () => callback();
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+};
+
+const isScriptLoaded = (url) => {
+    let scripts = document.getElementsByTagName('script');
+    for (let i = scripts.length; i--;) {
+        if (scripts[i].src == url) return true;
+    }
+    return false;
+};

@@ -8,6 +8,7 @@ import { useEscPress as useHookEscPress } from './hooks/useEscPress';
 import { useScrolled as useHookScrolled } from './hooks/useScrolled';
 import { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
 import { setClientVh as setHookClientVh } from './hooks/setClientVh';
+import { initScripts as useHookLoadScripts } from './hooks/useLoadScript';
 
 // functions
 import {
@@ -66,6 +67,7 @@ module.exports = {
 	useHookScrolled,
 	useHookWindowSize,
 	setHookClientVh,
+	useHookLoadScripts,
 
 	// functions
 	randomKey,
