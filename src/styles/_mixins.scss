@@ -63,6 +63,15 @@
     outline: none;
 }
 
+@mixin button-text {
+    @include button;
+
+    padding: 0;
+
+    color: #2b303c;
+    background: transparent;
+}
+
 @mixin button-text-red {
     @include button;
 
