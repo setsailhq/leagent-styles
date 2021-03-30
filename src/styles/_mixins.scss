@@ -332,7 +332,7 @@
         background-color: #{$bg};
     }
 
-    p.LA-helper {
+    p {
         font-size: 11px;
         line-height: 1.66;
 
@@ -343,7 +343,7 @@
         letter-spacing: .03333em;
     }
 
-    &.LA-form-error {
+    &[error='true'] {
         span, label, p {
             color: #f44336;
         }
