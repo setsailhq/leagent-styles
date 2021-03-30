@@ -1,7 +1,7 @@
-export const initScripts = (url, id) => {
+export const initScripts = (url, id, callback) => {
     if (!isScriptLoaded(url)) {
         loadScript(url, id, () => {
-            // console.log('loaded', url, new Date());
+            callback();
         });
     }
 };
