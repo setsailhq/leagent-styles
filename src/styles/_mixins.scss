@@ -257,7 +257,7 @@
 }
 
 @mixin formCtrls($bg: 'white', $border: '1.5px solid #EEEEEE') {
-    span {
+    span, label {
         @include formInputTitle;
 
         background: #{$bg};
@@ -330,6 +330,27 @@
 
         border: #{$border};
         background-color: #{$bg};
+    }
+
+    p.LA-helper {
+        font-size: 11px;
+        line-height: 1.66;
+
+        margin-top: 3px;
+
+        text-align: center;
+        text-align: center;
+        letter-spacing: .03333em;
+    }
+
+    &.LA-form-error {
+        span, label, p {
+            color: #f44336;
+        }
+
+        input, select, textarea {
+            border-color: #f44336;
+        }
     }
 }
 
