@@ -7,6 +7,7 @@ import { useCloseOnOuterClick as useHookCloseOnOuterClick } from './hooks/useClo
 import { useEscPress as useHookEscPress } from './hooks/useEscPress';
 import { useScrolled as useHookScrolled } from './hooks/useScrolled';
 import { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
+import { setClientVh as setHookClientVh } from './hooks/setClientVh';
 
 // functions
 import {
@@ -64,6 +65,7 @@ module.exports = {
 	useHookEscPress,
 	useHookScrolled,
 	useHookWindowSize,
+	setHookClientVh,
 
 	// functions
 	randomKey,
