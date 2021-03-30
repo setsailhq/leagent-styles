@@ -18,7 +18,10 @@
   }
 }
 
-.fslightbox-slide-btn-next-container {
+.fslightbox-slide-btn-container {
+  margin-top: -25px;
+}
+.fslightbox-slide-btn-container-next {
   .fslightbox-slide-btn {
     background-image: url('../assets/icons/arrow_left.svg');
     filter: invert(100%);
@@ -31,7 +34,7 @@
   }
 }
 
-.fslightbox-slide-btn-previous-container {
+.fslightbox-slide-btn-container-previous {
   .fslightbox-slide-btn {
     background-image: url('../assets/icons/arrow_left.svg');
     filter: invert(100%);
