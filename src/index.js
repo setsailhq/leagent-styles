@@ -9,6 +9,7 @@ import { useScrolled as useHookScrolled } from './hooks/useScrolled';
 import { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
 import { setClientVh as setHookClientVh } from './hooks/setClientVh';
 import { initScripts as useHookLoadScripts } from './hooks/useLoadScript';
+import { useGoogleCallback as useHookGoogleCallback } from './hooks/useGoogleCallback';
 
 // functions
 import {
@@ -68,6 +69,7 @@ module.exports = {
 	useHookWindowSize,
 	setHookClientVh,
 	useHookLoadScripts,
+	useHookGoogleCallback,
 
 	// functions
 	randomKey,
