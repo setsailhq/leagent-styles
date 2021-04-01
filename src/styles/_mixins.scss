@@ -354,6 +354,23 @@
             border-color: #f44336;
         }
     }
+
+    &[disabled] {
+        pointer-events: none;
+
+        label {
+            background: linear-gradient(180deg, #{$bg} 50%, #f8f8fa 50%);
+        }
+
+        input, select, textarea {
+            user-select: none;
+            pointer-events: none;
+
+            color: rgba(#000, .2);
+            border: 1.5px solid #e6e6ea;
+            background: #f8f8fa;
+        }
+    }
 }
 
 @mixin formCheckboxCtrl($width: 24px) {
