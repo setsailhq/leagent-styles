@@ -19,6 +19,8 @@
     "utils",
     "src/lib",
     "src/assets",
+    "src/helpers",
+    "src/hooks",
     "src/styles",
     "src/styles.scss"
   ],
