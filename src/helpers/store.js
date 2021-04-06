@@ -1,4 +1,4 @@
-import { hashCode } from './functions';
+import { hashCode } from './func_helpers';
 
 export function getSessionId() {
 	return hashCode('NU3NHexkAr6kEDxZahOcZ4sWGqiIinuT');
