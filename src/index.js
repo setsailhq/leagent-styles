@@ -24,10 +24,6 @@ import {
 	pageSize,
 	deviceType,
 	debounce,
-	insertIcon,
-	insertFeatureIcon,
-	featureName,
-	scrollTo,
 	hashCode,
 	isNumeric,
 	formatDate,
@@ -40,7 +36,14 @@ import {
 	textWidth,
 	hexToRgb,
 	iOS
-} from './helpers/functions'
+} from './helpers/func_helpers'
+
+import {
+	insertIcon,
+	insertFeatureIcon,
+	featureName,
+	scrollTo
+} from './helpers/func_libs'
 
 // framer
 import { collapseModal as framerCollapseModal, fadeIn as framerFadeIn } from './helpers/framer'
