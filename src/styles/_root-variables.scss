@@ -1,0 +1,28 @@
+// Colors to be overwritten via JS
+:root {
+    --color-theme-1: #2c344d;
+    --color-theme-2: #e5e5e5;
+    --color-theme-3: #d4dedd;
+    --color-theme-4: #502723;
+    --color-theme-5: #0078ff;
+    --color-theme-6: #f6f7f9;
+    --color-theme-shadow: rgba(0, 23, 255, .2);
+    --color-theme-shadow-dark: rgba(36, 40, 43, .2);
+}
+$colorTheme1: var(--color-theme-1);
+
+$colorTheme2: var(--color-theme-2);
+
+$colorTheme3: var(--color-theme-3);
+
+$colorTheme4: var(--color-theme-4);
+
+$colorTheme5: var(--color-theme-5);
+
+$colorTheme6: var(--color-theme-6);
+
+$colorThemeShadow: var(--color-theme-shadow);
+
+$colorThemeShadowDark: var(--color-theme-shadow-dark);
+
+$colorThemeBlack: #24282b;

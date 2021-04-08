@@ -1,8 +1,10 @@
 
+
 // generic styles
 @import 'styles/normalize',
     'styles/fonts',
     'styles/variables',
+    'styles/root-variables',
     'styles/mixins',
     'styles/mixins_skeleton';
 
@@ -19,6 +21,7 @@
 
 #root {
     overflow-x: hidden;
+
     max-width: 100vw;
 }
 
