@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { getConstants } from '../helpers/constants';
-import { debounce, deviceType } from '../helpers/functions';
+import { debounce, deviceType } from '../helpers/func_helpers';
 
 const constants = getConstants();
 
