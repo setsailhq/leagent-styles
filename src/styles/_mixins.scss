@@ -61,6 +61,12 @@
     border: none;
     border-radius: 49px;
     outline: none;
+
+    &[disabled] {
+        cursor: pointer;
+
+        opacity: .5;
+    }
 }
 
 @mixin button-text {
