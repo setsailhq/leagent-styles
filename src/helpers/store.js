@@ -28,10 +28,10 @@ export function setData(key, data) {
 	}
 	return res;
 }
-export function setUserData(data) {
+export function setUserData(data, isLocal) {
 	const cryptr = new Cryptr(HASH_CODE);
 	const string = cryptr.encrypt(JSON.stringify(data));
-	return cookies.set('userData', string);
+	return cookies.set('userData', string, { path: '/' , domain: isLocal ? 'localhost' : '.leagent.com' });
 }
 export function getUserData() {
 	const cryptr = new Cryptr(HASH_CODE);
