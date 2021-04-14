@@ -1,4 +1,9 @@
+import Cryptr from 'cryptr';
+import Cookies from 'universal-cookie';
 import { hashCode } from './func_helpers';
+
+const cryptr = new Cryptr(getSessionId());
+const cookies = new Cookies(getSessionId());
 
 export function getSessionId() {
 	return hashCode('NU3NHexkAr6kEDxZahOcZ4sWGqiIinuT');
@@ -24,8 +29,11 @@ export function setData(key, data) {
 	return res;
 }
 export function setUserData(data) {
-	return setData('userData', data);
+	const string = cryptr.encrypt(JSON.stringify(data));
+	return cookies.set('userData', string);
 }
 export function getUserData() {
-	return getData('userData');
+	let string = cookies.get('userData');
+	string = string ? cryptr.decrypt(string) : string;
+	return string && string.length && string !== 'undefined' ? JSON.parse(data) : null;
 }
