@@ -2,11 +2,12 @@ import Cryptr from 'cryptr';
 import Cookies from 'universal-cookie';
 import { hashCode } from './func_helpers';
 
-const cryptr = new Cryptr(getSessionId());
-const cookies = new Cookies(getSessionId());
+const HASH_CODE = 'NU3NHexkAr6kEDxZahOcZ4sWGqiIinuT';
+const cryptr = new Cryptr(HASH_CODE);
+const cookies = new Cookies(HASH_CODE);
 
 export function getSessionId() {
-	return hashCode('NU3NHexkAr6kEDxZahOcZ4sWGqiIinuT');
+	return hashCode(HASH_CODE);
 }
 
 export function getData(key, defaultVal = null) {
