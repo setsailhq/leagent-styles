@@ -64,6 +64,7 @@
 
     &[disabled] {
         cursor: pointer;
+        pointer-events: none;
 
         opacity: .5;
     }
@@ -671,7 +672,9 @@
         .cardFooterIcons {
             margin-top: 15px;
             margin-bottom: 0;
+
             white-space: nowrap;
+
             color: black;
 
             .cardFooterIconGroup {
