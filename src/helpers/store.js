@@ -1,4 +1,4 @@
-//import Cryptr from 'cryptr';
+import Cryptr from 'cryptr';
 import Cookies from 'universal-cookie';
 import { hashCode } from './func_helpers';
 
@@ -28,14 +28,14 @@ export function setData(key, data) {
 	}
 	return res;
 }
-export function setUserData(data) {
-	//const cryptr = new Cryptr(HASH_CODE);
-	//const string = cryptr.encrypt(JSON.stringify(data));
-	return cookies.set('userData', JSON.stringify(data));
+export function setUserData(data, isLocal) {
+	const cryptr = new Cryptr(HASH_CODE);
+	const string = cryptr.encrypt(JSON.stringify(data));
+	return cookies.set('userData', string, { path: '/' , domain: isLocal ? 'localhost' : '.leagent.com' });
 }
 export function getUserData() {
-	//const cryptr = new Cryptr(HASH_CODE);
+	const cryptr = new Cryptr(HASH_CODE);
 	let string = cookies.get('userData');
-	//string = string ? cryptr.decrypt(string) : string;
+	string = string ? cryptr.decrypt(string) : string;
 	return string && string.length && string !== 'undefined' ? JSON.parse(string) : null;
 }
