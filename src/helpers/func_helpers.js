@@ -62,6 +62,7 @@ export function isNumeric(value) {
 }
 
 export function formatDate(val) {
+	val = val.replace(/ /g,'T');
 	const curDate = new Date(val);
 	const date = curDate.getDate();
 	const month = curDate.getMonth() + 1;
