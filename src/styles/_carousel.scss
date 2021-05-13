@@ -4,21 +4,6 @@
     overflow: visible;
 }
 
-.react-multi-carousel-item {
-    transition: opacity .1s ease-in-out;
-    &:not(.react-multi-carousel-item--active) {
-        opacity: 0;
-    }
-}
-
-.react-multi-carousel-list {
-    &.partial {
-        .react-multi-carousel-item--active + .react-multi-carousel-item {
-            opacity: 1;
-        }
-    }
-}
-
 .react-multi-carousel-dot-list {
     li.react-multi-carousel-dot {
         &:not(:last-child) {
