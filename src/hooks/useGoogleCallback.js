@@ -1,5 +1,5 @@
 export const useGoogleCallback = (fieldId, onChange) => {
-    const input = document.getElementById(fieldId);
+    const input = document ? document.getElementById(fieldId) : null;
 
     if (!input) return;
 

@@ -6,17 +6,24 @@ const constants = getConstants();
 export function useScrolled() {
 
 	const [ scrollState, setScrollState ] = useState({
-		position: window.scrollY,
-		scrolled: window.scrollY > constants.SCROLL_GAP,
+		position: window ? window.scrollY : 0,
+		scrolled: window ? window.scrollY > constants.SCROLL_GAP : false,
 	});
 
 	useEffect(() => {
-		function handleScroll() {
-			setScrollState({ position: window.scrollY, scrolled: window.scrollY > constants.SCROLL_GAP });
+		if (window) {
+			function handleScroll() {
+				setScrollState({position: window.scrollY, scrolled: window.scrollY > constants.SCROLL_GAP});
+			}
+
+			window.addEventListener('scroll', handleScroll);
+			handleScroll();
 		}
-		window.addEventListener('scroll', handleScroll);
-		handleScroll();
-		return () => window.removeEventListener('scroll', handleScroll);
+		return () => {
+			if (window) {
+				window.removeEventListener('scroll', handleScroll)
+			}
+		};
 	}, []);
 
 	return scrollState;

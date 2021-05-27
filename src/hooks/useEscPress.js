@@ -11,9 +11,15 @@ export function useEscPress() {
 		function handleEscPress(event) {
 			setPressed(event && event.keyCode === constants.KEY_ESC);
 		}
-		window.addEventListener('keyup', handleEscPress, false);
+		if (window) {
+			window.addEventListener('keyup', handleEscPress, false);
+		}
 		handleEscPress();
-		return () => window.removeEventListener('keyup', handleEscPress, false);
+		return () => {
+			if (window) {
+				window.removeEventListener('keyup', handleEscPress, false)
+			}
+		};
 	}, []);
 
 	return pressed;

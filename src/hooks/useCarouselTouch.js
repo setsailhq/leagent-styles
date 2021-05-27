@@ -25,7 +25,7 @@ export function useCarouselTouch() {
 			const xDiff = xDown - xUp;
 			const yDiff = yDown - yUp;
 
-			if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (document && Math.abs(xDiff) > Math.abs(yDiff)) {
 				disableBodyScroll(window);
 				disableBodyScroll(document);
 				if (xDiff > 0) {
@@ -35,7 +35,7 @@ export function useCarouselTouch() {
 					const event = new Event('swipeRight');
 					document.dispatchEvent(event);
 				}
-			} else {
+			} else if (document) {
 				if (yDiff > 0) {
 					const event = new Event('swipeUp');
 					document.dispatchEvent(event);
@@ -49,17 +49,23 @@ export function useCarouselTouch() {
 		}
 
 		function handleTouchEnd() {
-			enableBodyScroll(window);
-			enableBodyScroll(document);
+			if (window && document) {
+				enableBodyScroll(window);
+				enableBodyScroll(document);
+			}
 		}
 
-		document.addEventListener('touchstart', handleTouchStart, false);
-		document.addEventListener('touchmove', handleTouchMove, false);
-		document.addEventListener('touchend', handleTouchEnd, false);
+		if (document) {
+			document.addEventListener('touchstart', handleTouchStart, false);
+			document.addEventListener('touchmove', handleTouchMove, false);
+			document.addEventListener('touchend', handleTouchEnd, false);
+		}
 		return () => {
-			document.removeEventListener('touchstart', handleTouchStart, false);
-			document.removeEventListener('touchmove', handleTouchMove, false);
-			document.removeEventListener('touchend', handleTouchEnd, false);
+			if (document) {
+				document.removeEventListener('touchstart', handleTouchStart, false);
+				document.removeEventListener('touchmove', handleTouchMove, false);
+				document.removeEventListener('touchend', handleTouchEnd, false);
+			}
 		};
 	});
 }
