@@ -23,11 +23,11 @@ export function featureName(featureName) {
 export function scrollTo(element, spacing, win) {
 	spacing = spacing ? spacing : 0;
 	smoothscroll.polyfill();
-	if (window) {
+	if (typeof window !== 'undefined') {
 		window.__forceSmoothScrollPolyfill__ = true;
 	}
-	const elToScroll = win ? win : window;
-	if (element && window) {
+	const elToScroll = win ? win : (typeof window !== 'undefined' ? window : null);
+	if (element && typeof window !== 'undefined') {
 		elToScroll.scroll({
 			behavior: 'smooth',
 			left: 0,

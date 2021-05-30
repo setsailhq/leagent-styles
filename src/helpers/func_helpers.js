@@ -31,8 +31,8 @@ export function randomCoords() {
 	return { 'lat': randomLat(), 'lng': randomLng() };
 }
 export function pageSize() {
-	const width = window ? (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) : 0;
-	const height = window ? (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) : 0;
+	const width = typeof window !== 'undefined' ? (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) : 0;
+	const height = typeof window !== 'undefined' ? (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) : 0;
 	return { width: width, height: height };
 }
 
@@ -118,7 +118,7 @@ export function replaceWithRandom(str, maxLen) {
 	const len = str.length;
 	const max = maxLen ? maxLen : 25;
 	const arr = new Uint8Array((len || 40) / 2);
-	if (window) {
+	if (typeof window !== 'undefined') {
 		window.crypto.getRandomValues(arr);
 	}
 	return Array.from(arr, (dec) => dec.toString(16).padStart(2, '0')).join('').substr(0, max);

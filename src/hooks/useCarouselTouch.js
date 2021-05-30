@@ -26,8 +26,10 @@ export function useCarouselTouch() {
 			const yDiff = yDown - yUp;
 
 			if (document && Math.abs(xDiff) > Math.abs(yDiff)) {
-				disableBodyScroll(window);
-				disableBodyScroll(document);
+				if (typeof window !== 'undefined') {
+					disableBodyScroll(window);
+					disableBodyScroll(document);
+				}
 				if (xDiff > 0) {
 					const event = new Event('swipeLeft');
 					document.dispatchEvent(event);
@@ -49,7 +51,7 @@ export function useCarouselTouch() {
 		}
 
 		function handleTouchEnd() {
-			if (window && document) {
+			if (typeof window !== 'undefined' && document) {
 				enableBodyScroll(window);
 				enableBodyScroll(document);
 			}
