@@ -11,11 +11,15 @@ export function useCloseOnOuterClick (handleClose) {
 		}
 	}, [handleClose]);
 	React.useEffect(() => {
-		document.addEventListener('mousedown', outerClick, false);
-		document.addEventListener('touchend', outerClick, false);
+		if (document) {
+			document.addEventListener('mousedown', outerClick, false);
+			document.addEventListener('touchend', outerClick, false);
+		}
 		return () => {
-			document.removeEventListener('mousedown', outerClick, false);
-			document.removeEventListener('touchend', outerClick, false);
+			if (document) {
+				document.removeEventListener('mousedown', outerClick, false);
+				document.removeEventListener('touchend', outerClick, false);
+			}
 		};
 	});
 

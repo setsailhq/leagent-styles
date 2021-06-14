@@ -31,8 +31,8 @@ export function randomCoords() {
 	return { 'lat': randomLat(), 'lng': randomLng() };
 }
 export function pageSize() {
-	const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-	const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	const width = typeof window !== 'undefined' ? (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) : 0;
+	const height = typeof window !== 'undefined' ? (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) : 0;
 	return { width: width, height: height };
 }
 
@@ -118,16 +118,21 @@ export function replaceWithRandom(str, maxLen) {
 	const len = str.length;
 	const max = maxLen ? maxLen : 25;
 	const arr = new Uint8Array((len || 40) / 2);
-	window.crypto.getRandomValues(arr);
+	if (typeof window !== 'undefined') {
+		window.crypto.getRandomValues(arr);
+	}
 	return Array.from(arr, (dec) => dec.toString(16).padStart(2, '0')).join('').substr(0, max);
 }
 
 export function textWidth(text, font) {
 	font = font ? font : 'bold 15px Helvetica Neue';
-	let canvas = textWidth.canvas || (textWidth.canvas = document.createElement('canvas'));
-	const context = canvas.getContext('2d');
-	context.font = font;
-	const metrics = context.measureText(text);
+	let canvas = textWidth.canvas || (textWidth.canvas = document ? document.createElement('canvas') : null);
+	const context = canvas ? canvas.getContext('2d') : null;
+	let metrics = 0;
+	if (context) {
+		context.font = font;
+		metrics = context.measureText(text);
+	}
 	return metrics.width * 2; // empirically defined
 }
 
@@ -141,7 +146,7 @@ export function hexToRgb(hex) {
 }
 
 export function iOS() {
-	return [
+	return navigator && [
 		'iPad Simulator',
 		'iPhone Simulator',
 		'iPod Simulator',
@@ -150,5 +155,5 @@ export function iOS() {
 		'iPod'
 	].includes(navigator.platform)
 	// iPad on iOS 13 detection
-	|| (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+	|| (navigator && document && navigator.userAgent.includes('Mac') && 'ontouchend' in document);
 }

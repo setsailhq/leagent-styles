@@ -12,7 +12,7 @@ export function getSessionId() {
 export function getData(key, defaultVal = null) {
 	let res = defaultVal;
 	try {
-		const data = localStorage.getItem(`${getSessionId()}__${key}`);
+		const data = localStorage ? localStorage.getItem(`${getSessionId()}__${key}`) : res;
 		res = data && data.length && data !== 'undefined' ? JSON.parse(data) : defaultVal;
 	} catch (e) {
 		console.log('Error: getData from local storage failed', e);
@@ -22,7 +22,7 @@ export function getData(key, defaultVal = null) {
 export function setData(key, data) {
 	let res = null;
 	try {
-		res = localStorage.setItem(`${getSessionId()}__${key}`, JSON.stringify(data));
+		res = localStorage ? localStorage.setItem(`${getSessionId()}__${key}`, JSON.stringify(data)) : null;
 	} catch (e) {
 		console.log('Error: setData from local storage failed', e);
 	}
