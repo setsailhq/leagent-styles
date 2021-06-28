@@ -38,7 +38,7 @@
     "postinstall": "npm i cryptr && npm i universal-cookie && npm i smoothscroll-polyfill && npm i body-scroll-lock && npm i src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
   },
   "peerDependencies": {
-    "react": ">= 16.8.0",
+    "react": ">= 17.0.2",
     "smoothscroll-polyfill": "^0.4.4",
     "body-scroll-lock": "^3.1.5",
     "universal-cookie": "^4.0.4",
