@@ -35,7 +35,7 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "postinstall": "npm i cryptr && npm i universal-cookie && npm i smoothscroll-polyfill && npm i body-scroll-lock && npm i src/lib/fslightbox-react-pro-1.4.2.tgz --no-save"
+    "postinstall": "npm i cryptr && npm i universal-cookie && npm i smoothscroll-polyfill --no-save"
   },
   "peerDependencies": {
     "react": ">= 17.0.2",

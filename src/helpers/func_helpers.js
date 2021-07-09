@@ -57,12 +57,8 @@ export function hashCode(s) {
 	return s.split('').reduce(function (a, b) { a = ((a << 5) - a) + b.charCodeAt(0); return a & a; }, 0);
 }
 
-export function isNumeric(value) {
-	return /^-?\d+$/.test(value);
-}
-
 export function formatDate(val) {
-	val = val.replace(/ /g,'T');
+	val = val.replace(/ /g, 'T');
 	const curDate = new Date(val);
 	const date = curDate.getDate();
 	const month = curDate.getMonth() + 1;
@@ -92,28 +88,6 @@ export function splitAddress(address) {
 	return { street: parts[0] ? parts[0] : '', city: parts[1] ? parts[1] : '', region: parts[2] ? parts[2] : '' };
 }
 
-export function splitText(string, split) {
-	let middle = Math.floor(string.length / 2);
-	let before = string.lastIndexOf(' ', middle);
-	let after = string.indexOf(' ', middle + 1);
-	if (split === 'before') {
-		middle = before;
-	} else if (split === 'after') {
-		middle = after;
-	} else {
-		if (before === -1 || (after !== -1 && middle - before >= after - middle)) {
-			middle = after;
-		} else {
-			middle = before;
-		}
-	}
-	return [ string.substr(0, middle), string.substr(middle + 1) ];
-}
-
-export function strToSlug(str) {
-	return str.trim().replace(/[^a-z0-9-]/gi, '_').replace(/-+/g, '_').replace(/^-|-$/g, '');
-}
-
 export function replaceWithRandom(str, maxLen) {
 	const len = str.length;
 	const max = maxLen ? maxLen : 25;
@@ -122,38 +96,4 @@ export function replaceWithRandom(str, maxLen) {
 		window.crypto.getRandomValues(arr);
 	}
 	return Array.from(arr, (dec) => dec.toString(16).padStart(2, '0')).join('').substr(0, max);
-}
-
-export function textWidth(text, font) {
-	font = font ? font : 'bold 15px Helvetica Neue';
-	let canvas = textWidth.canvas || (textWidth.canvas = document ? document.createElement('canvas') : null);
-	const context = canvas ? canvas.getContext('2d') : null;
-	let metrics = 0;
-	if (context) {
-		context.font = font;
-		metrics = context.measureText(text);
-	}
-	return metrics.width * 2; // empirically defined
-}
-
-export function hexToRgb(hex) {
-	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result ? {
-		r: parseInt(result[1], 16),
-		g: parseInt(result[2], 16),
-		b: parseInt(result[3], 16)
-	} : null;
-}
-
-export function iOS() {
-	return navigator && [
-		'iPad Simulator',
-		'iPhone Simulator',
-		'iPod Simulator',
-		'iPad',
-		'iPhone',
-		'iPod'
-	].includes(navigator.platform)
-	// iPad on iOS 13 detection
-	|| (navigator && document && navigator.userAgent.includes('Mac') && 'ontouchend' in document);
 }
