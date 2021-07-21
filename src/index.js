@@ -5,7 +5,6 @@ import FsLightbox from 'fslightbox-react';
 import { useCarouselTouch as useHookCarouselTouch } from './hooks/useCarouselTouch';
 import { useCloseOnOuterClick as useHookCloseOnOuterClick } from './hooks/useCloseOnOuterClick';
 import { useEscPress as useHookEscPress } from './hooks/useEscPress';
-import { useEnterPress as useHookEnterPress } from './hooks/useEnterPress';
 import { useScrolled as useHookScrolled } from './hooks/useScrolled';
 import { useWindowSize as useHookWindowSize } from './hooks/useWindowSize';
 import { setClientVh as setHookClientVh } from './hooks/setClientVh';
@@ -69,7 +68,6 @@ module.exports = {
 	useHookCarouselTouch,
 	useHookCloseOnOuterClick,
 	useHookEscPress,
-	useHookEnterPress,
 	useHookScrolled,
 	useHookWindowSize,
 	setHookClientVh,
