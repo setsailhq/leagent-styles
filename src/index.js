@@ -1,5 +1,8 @@
 
+import FsLightbox from 'fslightbox-react';
+
 // hooks
+import { useCarouselTouch as useHookCarouselTouch } from './hooks/useCarouselTouch';
 import { useCloseOnOuterClick as useHookCloseOnOuterClick } from './hooks/useCloseOnOuterClick';
 import { useEscPress as useHookEscPress } from './hooks/useEscPress';
 import { useEnterPress as useHookEnterPress } from './hooks/useEnterPress';
@@ -23,21 +26,28 @@ import {
 	deviceType,
 	debounce,
 	hashCode,
+	isNumeric,
 	formatDate,
 	addCommas,
 	splitValue,
 	splitAddress,
+	splitText,
+	strToSlug,
 	replaceWithRandom,
+	textWidth,
+	hexToRgb,
+	iOS
 } from './helpers/func_helpers'
 
 import {
+	insertIcon,
 	insertFeatureIcon,
 	featureName,
 	scrollTo
 } from './helpers/func_libs'
 
 // framer
-import { fadeIn as framerFadeIn } from './helpers/framer'
+import { collapseModal as framerCollapseModal, fadeIn as framerFadeIn } from './helpers/framer'
 
 // story
 import {
@@ -52,7 +62,11 @@ import {
 import { getConstants } from './helpers/constants'
 
 module.exports = {
+	// components
+	FsLightbox,
+
 	// hooks
+	useHookCarouselTouch,
 	useHookCloseOnOuterClick,
 	useHookEscPress,
 	useHookEnterPress,
